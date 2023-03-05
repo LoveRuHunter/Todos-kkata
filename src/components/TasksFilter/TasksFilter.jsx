@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/order
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import './TasksFilter.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -34,9 +34,9 @@ export default class TasksFilter extends Component {
           </button>
         </li>
       );
-    });
+    })
 
-    return <ul className="filters">{buttons}</ul>;
+    return <ul className="filters">{buttons}</ul>
   }
 }
 TasksFilter.propTypes = {
@@ -44,7 +44,7 @@ TasksFilter.propTypes = {
   onFilterChange: PropTypes.func,
   // eslint-disable-next-line react/require-default-props
   filter: PropTypes.string,
-};
+}
 TasksFilter.defaultProps = {
   // eslint-disable-next-line react/default-props-match-prop-types
   buttons: 'all',
