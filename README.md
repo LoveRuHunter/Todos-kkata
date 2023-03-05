@@ -1,2 +1,2 @@
 # Todos-kkata
-todos-kkata-456-nnprxod0w-loveruhunter.vercel.app
+https://vercel.com/loveruhunter/todos-kkata-456/GL7dCBaHGQcUDdcBvSp17DGg138s
