@@ -36,7 +36,7 @@
     "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "no-plusplus": 0,
     "react/react-in-jsx-scope": "off",
     "react/state-in-constructor": 0,

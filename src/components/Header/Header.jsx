@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import NewTaskForm from '../NewTaskForm';
 import PropTypes from 'prop-types';
+
+import NewTaskForm from '../NewTaskForm';
 
 import './Header.css';
 
 export default class Header extends Component {
   state = {
+    // eslint-disable-next-line react/no-unused-state
     title: '',
   };
+
   render() {
     const { onAddedSubmit, onSearch, title, placeholder } = this.props;
 
@@ -23,7 +26,9 @@ export default class Header extends Component {
 Header.propTypes = {
   title: PropTypes.string,
   placeholder: PropTypes.string,
+  // eslint-disable-next-line react/require-default-props
   onAddedSubmit: PropTypes.func,
+  // eslint-disable-next-line react/require-default-props
   onSearch: PropTypes.func,
 };
 Header.defaultProps = {

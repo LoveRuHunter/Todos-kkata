@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+
 import TaskList from '../TaskList';
 import Footer from '../Footer';
 import Header from '../Header';
 import './App.css';
+
 export default class App extends Component {
   maxId = 3;
 
   state = {
     todoData: [],
+    // eslint-disable-next-line react/no-unused-state
     term: '',
     filter: 'all',
   };
@@ -19,12 +22,11 @@ export default class App extends Component {
       date: new Date(),
       label,
     };
-    this.setState(({ todoData }) => {
-      return {
-        todoData: [...todoData, newItem],
-      };
-    });
+    this.setState(({ todoData }) => ({
+      todoData: [...todoData, newItem],
+    }));
   };
+
   deleteItem = (id) => {
     this.setState(({ todoData }) => {
       const idx = todoData.findIndex((el) => el.id === id);
@@ -35,10 +37,12 @@ export default class App extends Component {
       };
     });
   };
+
   editItem = (id, text) => {
     this.setState(({ todoData }) => ({
       todoData: todoData.map((todo) => {
         if (todo.id === id) {
+          // eslint-disable-next-line no-param-reassign
           todo = { ...todo, label: text };
         }
         return todo;
@@ -62,6 +66,7 @@ export default class App extends Component {
     });
   };
 
+  // eslint-disable-next-line class-methods-use-this,react/sort-comp
   filter(items, filter) {
     switch (filter) {
       case 'all':
@@ -80,8 +85,10 @@ export default class App extends Component {
   };
 
   onSearch = (term) => {
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ term });
   };
+
   clearComponent = () => {
     this.setState(({ todoData }) => ({
       todoData: todoData.filter((el) => !el.completed),
