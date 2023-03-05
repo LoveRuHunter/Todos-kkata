@@ -33,6 +33,7 @@
         "SwitchCase": 1
       }
     ],
+    "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],

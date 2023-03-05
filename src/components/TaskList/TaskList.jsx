@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import Task from '../Task'
+import Task from '../Task';
 
-import './TaskList.css'
+import './TaskList.css';
 // eslint-disable-next-line import/no-extraneous-dependencies,import/order
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function TaskList({ todos, onDeleted, onToggleCompleted, editItem }) {
   const elements = todos.map((item) => {
-    const { id, ...itemProps } = item
+    const { id, ...itemProps } = item;
 
     return (
       <Task
@@ -19,14 +19,14 @@ function TaskList({ todos, onDeleted, onToggleCompleted, editItem }) {
         onToggleCompleted={() => onToggleCompleted(id)}
         editItem={editItem}
       />
-    )
-  })
+    );
+  });
 
   return (
     <section className="main">
       <ul className="todo-list">{elements}</ul>
     </section>
-  )
+  );
 }
 
 TaskList.propTypes = {
@@ -36,9 +36,9 @@ TaskList.propTypes = {
   onDeleted: PropTypes.func,
   // eslint-disable-next-line react/require-default-props
   onToggleCompleted: PropTypes.func,
-}
+};
 TaskList.defaultProps = {
   todos: {},
-}
+};
 
-export default TaskList
+export default TaskList;

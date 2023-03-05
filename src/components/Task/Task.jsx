@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import KG from 'date-fns/locale/en-AU'
-import { formatDistanceToNow } from 'date-fns'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import KG from 'date-fns/locale/en-AU';
+import { formatDistanceToNow } from 'date-fns';
 
 class Task extends Component {
   state = {
     editing: false,
     value: '',
-  }
+  };
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    const { editItem, id } = this.props
-    editItem(id, this.state.value)
-    this.setState({ editing: false })
-  }
+    e.preventDefault();
+    const { editItem, id } = this.props;
+    editItem(id, this.state.value);
+    this.setState({ editing: false });
+  };
 
   render() {
-    const { onDeleted, onToggleCompleted, label, id, completed, date } = this.props
+    const { onDeleted, onToggleCompleted, label, id, completed, date } = this.props;
 
     return (
       <li className={completed ? 'completed' : this.state.editing ? 'editing' : null}>
@@ -58,7 +58,7 @@ class Task extends Component {
           </form>
         )}
       </li>
-    )
+    );
   }
 }
 
@@ -70,8 +70,8 @@ Task.propTypes = {
   onDeleted: PropTypes.func.isRequired,
   date: PropTypes.instanceOf(Date),
   editItem: PropTypes.func,
-}
+};
 Task.defaultProps = {
   completed: false,
-}
-export default Task
+};
+export default Task;
