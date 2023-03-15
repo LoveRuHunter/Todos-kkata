@@ -12,12 +12,17 @@ export default class Header extends Component {
   };
 
   render() {
-    const { onAddedSubmit, onSearch, title, placeholder } = this.props;
+    const { onAddedSubmit, onSearch, title, placeholder, onAddedTime } = this.props;
 
     return (
       <header className="header">
         <h1>{title}</h1>
-        <NewTaskForm onAddedSubmit={onAddedSubmit} onSearch={onSearch} placeholder={placeholder} />
+        <NewTaskForm
+          onAddedSubmit={onAddedSubmit}
+          onAddedTime={onAddedTime}
+          onSearch={onSearch}
+          placeholder={placeholder}
+        />
       </header>
     );
   }
@@ -32,6 +37,6 @@ Header.propTypes = {
   onSearch: PropTypes.func,
 };
 Header.defaultProps = {
-  placeholder: 'What needs to be done?',
+  placeholder: 'Task',
   title: 'Todos',
 };

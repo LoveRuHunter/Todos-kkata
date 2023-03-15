@@ -8,13 +8,15 @@ import PropTypes from 'prop-types';
 
 function TaskList({ todos, onDeleted, onToggleCompleted, editItem }) {
   const elements = todos.map((item) => {
-    const { id, ...itemProps } = item;
+    const { id, minValue, secValue, ...itemProps } = item;
 
     return (
       <Task
         {...itemProps}
         key={item.id}
         onDeleted={() => onDeleted(id)}
+        minValue={minValue}
+        secValue={secValue}
         id={id}
         onToggleCompleted={() => onToggleCompleted(id)}
         editItem={editItem}

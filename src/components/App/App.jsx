@@ -9,10 +9,18 @@ export default class App extends Component {
   maxId = 3;
 
   state = {
-    todoData: [],
+    todoData: [
+      this.createTodoItem('Completed task', 15, 0),
+      this.createTodoItem('Editing task', 15, 0),
+      this.createTodoItem('Active task', 15, 0),
+    ],
     // eslint-disable-next-line react/no-unused-state
     term: '',
     filter: 'all',
+    // eslint-disable-next-line react/no-unused-state
+    minValue: '',
+    // eslint-disable-next-line react/no-unused-state
+    secValue: '',
   };
 
   onAddedSubmit = (label) => {
@@ -27,6 +35,17 @@ export default class App extends Component {
     }));
   };
 
+  onAddedTime = (label, minValue, secValue) => {
+    const newItem = this.createTodoItem(label, minValue, secValue);
+    this.setState(({ todoData }) => {
+      const newTodoData = [...todoData, newItem];
+      return {
+        todoData: newTodoData,
+      };
+    });
+  };
+
+  // eslint-disable-next-line react/sort-comp
   deleteItem = (id) => {
     this.setState(({ todoData }) => {
       const idx = todoData.findIndex((el) => el.id === id);
@@ -95,6 +114,28 @@ export default class App extends Component {
     }));
   };
 
+  // eslint-disable-next-line class-methods-use-this,react/no-unused-class-component-methods,no-dupe-class-members
+  createTodoItem(label, minValue, secValue) {
+    // eslint-disable-next-line no-unused-vars
+    const id = Date.now() + Math.floor(Math.random() * 10000);
+    const trimLabel = label.replace(/ +/g, ' ').trim();
+    let minValueNumber = +minValue;
+    let secValueNumber = +secValue;
+    if (secValueNumber > 60) {
+      minValueNumber += Math.trunc(secValueNumber / 60);
+      secValueNumber -= Math.trunc(secValueNumber / 60) * 60;
+    }
+    return {
+      id,
+      label: trimLabel,
+      date: new Date(),
+      completed: false,
+      editing: false,
+      minValue: minValueNumber,
+      secValue: secValueNumber,
+    };
+  }
+
   render() {
     const { todoData, filter } = this.state;
 
@@ -105,7 +146,7 @@ export default class App extends Component {
 
     return (
       <section className="todoapp">
-        <Header onAddedSubmit={this.onAddedSubmit} onSearch={this.onSearch} />
+        <Header onAddedSubmit={this.onAddedSubmit} onAddedTime={this.onAddedTime} onSearch={this.onSearch} />
         <TaskList
           todos={visibleItems}
           onDeleted={this.deleteItem}
