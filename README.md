@@ -1,2 +1,1 @@
-
-todos-kkata-timer.vercel.app
+https://todos-kkata-timer.vercel.app/
